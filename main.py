@@ -1,9 +1,20 @@
-import os
-
-
 def main():
-    print("Starting Lexis - Document Intelligence Platform...")
-    os.system("streamlit run app.py")
+    print("""
+╔══════════════════════════════════════════════╗
+║            LEXIS PLATFORM                    ║
+║      AI-Powered Document Intelligence        ║
+╚══════════════════════════════════════════════╝
+
+Features:
+✓ PDF Analysis
+✓ DOCX Analysis
+✓ Semantic Search
+✓ RAG Pipeline
+✓ Multi-Provider AI
+✓ Ollama Local Models
+
+Starting application...
+""")
 
 
 if __name__ == "__main__":
