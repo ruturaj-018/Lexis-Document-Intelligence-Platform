@@ -2,3 +2,5 @@ python --version 3.11.9
 streamlit
 langchain
 langchain-core
+langchain-google genai
+pandas
