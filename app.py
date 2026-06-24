@@ -19,8 +19,8 @@ try:
 except RuntimeError:
     asyncio.set_event_loop(asyncio.new_event_loop())
 
-
-    page_title="Rag pipeline",
+st.set_page_config(
+    page_title="rag pipeline",
     page_icon="◈",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -173,3 +173,235 @@ html, body, [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, rgba(212,170,96,.2), rgba(180,130,60,.35)) !important;
     border-color: rgba(212,170,96,.6) !important;
 }
+
+/* ── Radio ── */
+[data-testid="stRadio"] label {
+    color: rgba(200,185,150,.6) !important;
+    font-size: .78rem !important;
+}
+[data-testid="stRadio"] > div { gap: .5rem !important; }
+
+/* ── Main header ── */
+.main-header {
+    text-align: center;
+    padding: 3.5rem 0 2.5rem;
+    animation: fadeSlideDown .8s ease both;
+}
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 600;
+    color: #e8e0cc;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+}
+.main-title em {
+    font-style: italic;
+    color: #d4aa60;
+}
+.main-subtitle {
+    margin-top: .9rem;
+    font-size: .85rem;
+    font-weight: 300;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(200,185,140,.4);
+}
+.header-rule {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4aa60, transparent);
+    margin: 1.4rem auto 0;
+}
+
+/* ── Query input card ── */
+.query-wrap {
+    max-width: 820px;
+    margin: 0 auto 2.5rem;
+    animation: fadeSlideUp .7s .2s ease both;
+}
+.query-label {
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(200,185,140,.4);
+    margin-bottom: .6rem;
+}
+
+/* ── Response card ── */
+.response-card {
+    max-width: 820px;
+    margin: 0 auto 1.6rem;
+    background: rgba(255,255,255,.028);
+    border: 1px solid rgba(212,170,96,.12);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: fadeSlideUp .5s ease both;
+}
+.response-header {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .9rem 1.4rem;
+    border-bottom: 1px solid rgba(212,170,96,.08);
+    background: rgba(212,170,96,.04);
+}
+.response-role {
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+.role-user { color: rgba(180,200,255,.6); }
+.role-assistant { color: #d4aa60; }
+.role-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+}
+.response-body {
+    padding: 1.3rem 1.6rem;
+    font-size: .92rem;
+    line-height: 1.75;
+    color: #ddd5c0;
+}
+
+/* ── Keyword suggestions ── */
+.keywords-wrap {
+    max-width: 820px;
+    margin: 0 auto 2.5rem;
+    animation: fadeSlideUp .6s .1s ease both;
+}
+.keywords-title {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba(200,185,140,.35);
+    margin-bottom: .75rem;
+}
+.keywords-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+.keyword-chip {
+    display: inline-block;
+    padding: .42rem 1rem;
+    border: 1px solid rgba(212,170,96,.22);
+    border-radius: 100px;
+    font-size: .76rem;
+    color: rgba(212,170,96,.8);
+    background: rgba(212,170,96,.04);
+    cursor: pointer;
+    transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+}
+.keyword-chip:hover {
+    background: rgba(212,170,96,.12);
+    border-color: rgba(212,170,96,.55);
+    transform: translateY(-1px);
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 0 auto 3rem;
+    max-width: 820px;
+    animation: fadeSlideUp .7s .3s ease both;
+}
+.stat-item { text-align: center; }
+.stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #d4aa60;
+    display: block;
+}
+.stat-label {
+    font-size: .65rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(200,185,140,.35);
+}
+
+/* ── Empty state ── */
+.empty-state {
+    max-width: 480px;
+    margin: 3rem auto;
+    text-align: center;
+    opacity: .55;
+    animation: pulse 3s ease-in-out infinite;
+}
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    display: block;
+}
+.empty-text {
+    font-size: .85rem;
+    line-height: 1.6;
+    color: rgba(200,185,140,.5);
+}
+
+/* ── Download link ── */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .55rem 1.2rem;
+    border: 1px solid rgba(212,170,96,.3);
+    border-radius: 8px;
+    color: #d4aa60 !important;
+    text-decoration: none !important;
+    font-size: .76rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: transparent;
+    transition: all .22s;
+}
+.download-btn:hover {
+    background: rgba(212,170,96,.1);
+    border-color: rgba(212,170,96,.6);
+}
+
+/* ── Spinner ── */
+[data-testid="stSpinner"] { color: #d4aa60 !important; }
+
+/* ── Success / Warning ── */
+.stSuccess, .stWarning { border-radius: 10px !important; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(212,170,96,.2); border-radius: 2px; }
+
+/* ── Divider ── */
+hr { border-color: rgba(212,170,96,.1) !important; }
+
+/* ── Keyframes ── */
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    0%, 100% { opacity: .45; }
+    50%       { opacity: .65; }
+}
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+}
+.shimmer {
+    background: linear-gradient(90deg, rgba(212,170,96,.1) 25%, rgba(212,170,96,.3) 50%, rgba(212,170,96,.1) 75%);
+    background-size: 200% auto;
+    animation: shimmer 2s linear infinite;
+    border-radius: 6px;
+}
+</style>
+""", unsafe_allow_html=True)
